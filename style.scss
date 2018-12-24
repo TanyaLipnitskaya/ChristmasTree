@@ -1,0 +1,23 @@
+.furtree {
+    fill: green;
+}
+
+.star {
+    fill: gold;
+}
+
+@keyframes glow {
+    0% {
+        fill-opacity: 0;
+    }
+
+    100% {
+        fill-opacity: 0.8;
+    }
+}
+
+.decoration {
+    fill: red;
+    fill-opacity: 0.8;
+    animation: glow 5s infinite alternate;
+}
