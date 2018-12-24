@@ -1,15 +1,17 @@
 const decorations = document.getElementsByClassName('decoration');
 const colors = ['red', 'yellow', 'blue'];
+let counter = 0
 const partyTime = function () {
     for (const ball of decorations) {
-        const currentColor = ball.style.fill;
-        if (!currentColor) {
-            ball.style.fill = colors[0];
-            return
-        }
-        const currentSelectedColor = colors.indexOf(currentColor)
-
+        ball.classList.remove(colors[counter])
+        ball.classList.add(colors[(counter + 1) % colors.length])
     }
+    if (counter === colors.length - 1) {
+        counter = 0;
+    } else {
+        counter++
+    }
+    // counter = (counter + 1) % colors.length;
+    console.log('c', counter, 'v', colors.length)
 }
-partyTime()
-setInterval()
+setInterval(partyTime, 5000)
